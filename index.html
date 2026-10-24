@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111318">
+    <title>WordQuest — Guess the Word</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <header class="topbar">
+            <a class="brand" href="./">🧩 WordQuest</a>
+            <span class="tagline">A little game for your brain</span>
+        </header>
+
+        <section id="category-screen" class="screen">
+            <div class="hero">
+                <span class="eyebrow">THE DAILY BRAIN BREAK</span>
+                <h1>Find the<br><span>secret word.</span></h1>
+                <p>Guess a word from your chosen category.
+                   Every guess gives you an alphabetical clue.</p>
+            </div>
+
+            <h2 class="section-title">Choose your category</h2>
+
+            <div class="category-grid">
+                <button class="category-card" data-category="animals">
+                    <span class="category-icon">🐘</span>
+                    <span class="category-name">Animals</span>
+                    <span class="category-subtitle">The wild side</span>
+                </button>
+
+                <button class="category-card" data-category="birds">
+                    <span class="category-icon">🦜</span>
+                    <span class="category-name">Birds</span>
+                    <span class="category-subtitle">Spread your wings</span>
+                </button>
+
+                <button class="category-card" data-category="fruits">
+                    <span class="category-icon">🍓</span>
+                    <span class="category-name">Fruits</span>
+                    <span class="category-subtitle">Fresh guesses</span>
+                </button>
+
+                <button class="category-card" data-category="flowers">
+                    <span class="category-icon">🌻</span>
+                    <span class="category-name">Flowers</span>
+                    <span class="category-subtitle">Stop and smell</span>
+                </button>
+            </div>
+
+            <p class="how-to">
+                💡 <strong>How to play:</strong>
+                ↑ means the answer comes later alphabetically.
+                ↓ means it comes earlier.
+            </p>
+        </section>
+
+        <section id="game-screen" class="screen hidden">
+            <button id="back-button" class="back-button">
+                ← Change category
+            </button>
+
+            <div class="game-heading">
+                <span id="game-category-icon" class="big-icon">🐘</span>
+                <div>
+                    <span class="eyebrow">YOUR CATEGORY</span>
+                    <h1 id="game-category">Animals</h1>
+                </div>
+            </div>
+
+            <div class="game-panel">
+                <div class="game-intro">
+                    <h2>What's the word?</h2>
+                    <p>Enter your guess and follow the clues.</p>
+                </div>
+
+                <form id="guess-form">
+                    <label for="guess-input">Your guess</label>
+                    <div class="guess-controls">
+                        <input
+                            id="guess-input"
+                            type="text"
+                            placeholder="Type a word..."
+                            autocomplete="off"
+                            spellcheck="false"
+                            required
+                        >
+                        <button type="submit" id="submit-button">
+                            Guess →
+                        </button>
+                    </div>
+                </form>
+
+                <p id="feedback" class="feedback" aria-live="polite">
+                    Make your first guess!
+                </p>
+
+                <div class="history-heading">
+                    <h3>Your guesses</h3>
+                    <span id="guess-count">0 guesses</span>
+                </div>
+
+                <div id="guess-history" class="guess-history">
+                    <div class="empty-state">
+                        Your guesses will appear here.
+                    </div>
+                </div>
+
+                <div id="win-panel" class="win-panel hidden">
+                    <span class="win-emoji">🎉</span>
+                    <h2>You got it!</h2>
+                    <p id="win-message"></p>
+                    <button id="play-again" class="primary-button">
+                        Play again ↻
+                    </button>
+                    <button id="change-category" class="text-button">
+                        Choose another category
+                    </button>
+                </div>
+            </div>
+
+            <p class="game-tip">
+                There are no limits. Keep guessing until you find it!
+            </p>
+        </section>
+
+        <footer>
+            Made for curious minds <span>♥</span>
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

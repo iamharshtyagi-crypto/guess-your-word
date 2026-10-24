@@ -1,0 +1,477 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #111318;
+    --panel: #1b1e26;
+    --panel-light: #242833;
+    --border: #303541;
+    --text: #f4f5f7;
+    --muted: #9ca3b2;
+    --accent: #c5f36b;
+    --green: #263f31;
+    --red: #482b32;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at top left, #242b32 0%, transparent 45%),
+        var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.app {
+    width: min(100% - 32px, 760px);
+    margin: auto;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.tagline {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.screen {
+    padding: 45px 0 30px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.hero {
+    padding: 15px 0 35px;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero h1,
+.game-heading h1 {
+    margin: 14px 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.7rem, 8vw, 4.5rem);
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero p,
+.game-intro p {
+    max-width: 440px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.section-title {
+    margin: 0 0 17px;
+    font-size: 1.05rem;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+    min-height: 155px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--panel);
+    color: var(--text);
+    text-align: left;
+    transition: transform 0.2s, border-color 0.2s,
+                background 0.2s;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    background: var(--panel-light);
+}
+
+.category-icon {
+    font-size: 2rem;
+}
+
+.category-name {
+    font-size: 1.08rem;
+    font-weight: 800;
+}
+
+.category-subtitle {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.how-to {
+    margin-top: 24px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--muted);
+    font-size: 0.86rem;
+    line-height: 1.7;
+}
+
+.how-to strong {
+    color: var(--text);
+}
+
+.back-button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--muted);
+}
+
+.back-button:hover,
+.text-button:hover {
+    color: var(--accent);
+}
+
+.game-heading {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin: 28px 0;
+}
+
+.big-icon {
+    font-size: 3rem;
+}
+
+.game-heading h1 {
+    margin: 6px 0 0;
+    font-size: 2.3rem;
+    letter-spacing: -1px;
+}
+
+.game-panel {
+    padding: clamp(18px, 5vw, 30px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--panel);
+}
+
+.game-intro h2 {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+}
+
+.game-intro p {
+    margin: 8px 0 25px;
+    font-size: 0.9rem;
+}
+
+#guess-form label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.guess-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.guess-controls input {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #111318;
+    color: var(--text);
+}
+
+.guess-controls input::placeholder {
+    color: #707787;
+}
+
+.guess-controls button,
+.primary-button {
+    flex-shrink: 0;
+    padding: 13px 18px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #171b12;
+    font-weight: 800;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.guess-controls button:hover,
+.primary-button:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+.guess-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.feedback {
+    min-height: 24px;
+    margin: 17px 0 24px;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.feedback.error {
+    color: #ff9eab;
+}
+
+.feedback.success {
+    color: var(--accent);
+}
+
+.history-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.history-heading h3 {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.history-heading span {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.guess-history {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.guess-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--panel-light);
+    animation: appear 0.2s ease-out;
+}
+
+.guess-word {
+    overflow-wrap: anywhere;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.guess-result {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-align: right;
+}
+
+.guess-result .arrow {
+    font-size: 1.15rem;
+}
+
+.higher .guess-result {
+    color: #b9d7ff;
+}
+
+.lower .guess-result {
+    color: #ffbd96;
+}
+
+.correct {
+    border-color: #5a9e65;
+    background: var(--green);
+}
+
+.correct .guess-result {
+    color: var(--accent);
+}
+
+.empty-state {
+    padding: 24px 12px;
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.win-panel {
+    margin-top: 24px;
+    padding: 22px;
+    border: 1px solid #526e42;
+    border-radius: 14px;
+    background: var(--green);
+    text-align: center;
+}
+
+.win-emoji {
+    font-size: 2.5rem;
+}
+
+.win-panel h2 {
+    margin: 8px 0;
+    color: var(--accent);
+}
+
+.win-panel p {
+    color: #d4dfd1;
+    line-height: 1.6;
+}
+
+.primary-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.text-button {
+    display: block;
+    margin: 15px auto 0;
+    padding: 8px;
+    border: 0;
+    background: none;
+    color: var(--muted);
+}
+
+.game-tip {
+    color: var(--muted);
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+footer {
+    padding: 22px 0;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+footer span {
+    color: #ff7185;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .app {
+        width: min(100% - 24px, 760px);
+    }
+
+    .topbar {
+        padding: 19px 0;
+    }
+
+    .tagline {
+        max-width: 130px;
+        text-align: right;
+    }
+
+    .screen {
+        padding-top: 30px;
+    }
+
+    .category-card {
+        min-height: 140px;
+        padding: 15px;
+    }
+
+    .guess-controls {
+        flex-direction: column;
+    }
+
+    .guess-controls button {
+        width: 100%;
+    }
+
+    .guess-row {
+        padding: 12px;
+    }
+
+    .guess-result {
+        font-size: 0.75rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
